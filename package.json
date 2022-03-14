@@ -1,5 +1,5 @@
 {
-  "name": "kavak-release-notes",
+  "name": "gitlab-release-notes",
   "version": "0.0.1",
   "description": "Release Notes generator",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "alan.castro@kavak.com",
+  "author": "jassmel05@gmail.com",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.0",
