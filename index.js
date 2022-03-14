@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const MilestoneSource = require("./milestone-source");
+const Gitlab = require("./gitlab-source");
 const Reporter = require("./reporter");
 
 async function run() {
@@ -10,25 +10,25 @@ async function run() {
     let reporter = new Reporter();
 
     // Create instances
-    let fromReleaseTagVersion = 'v4.2.1'; // previous tag
-    let toReleaseTagVersion = 'v4.2.2'; // next tag
-    let client = new MilestoneSource(owner, token);
+    let client = new Gitlab(owner, token);
 
     // Collecting information to produce the report
-    let fromDate = await client.getTagCursor(fromReleaseTagVersion);
-    console.log(`From release date identified: ${fromDate}`);
-    let toDate = await client.getTagCursor(toReleaseTagVersion);
-    console.log(`To release date identified: ${toDate}`);
+
+    // Get last release tag date
+    let lastReleaseDate = await client.getLastReleaseDate();
+    console.log(`Last release date: ${lastReleaseDate}`);
+
+    // To current date
+    let toNow = new Date().toISOString();
+
     let pulls = await client.getPullsSinceLastRelease(
-        fromDate,
-        toDate
+        lastReleaseDate,
+        toNow
     );
+
     console.log(
-        `${pulls.length} PRs collected between ${fromDate} and ${toDate}`
+        `\n\n${pulls.length} PRs collected between ${lastReleaseDate} and ${toNow} \n`
     );
-    pulls.forEach(element => {
-        console.log(element);
-    });
 
     // Producing report
     let output = reporter.generate(pulls);

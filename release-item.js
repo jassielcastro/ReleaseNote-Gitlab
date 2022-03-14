@@ -1,7 +1,9 @@
 class ReleaseItem {
     constructor(props) {
         this.title = props.title;
-        this.id = props.id;
+        this.author = props.author.name;
+        this.reviewers = props.reviewers;
+        this.mr = props.web_url;
     }
 }
 
