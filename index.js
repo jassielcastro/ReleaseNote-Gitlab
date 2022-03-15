@@ -6,6 +6,7 @@ const Reporter = require("./reporter");
 async function run() {
     let owner = process.env.PROJECT_ID;
     let token = process.env.GITLAB_TOKEN;
+    let url = process.env.TASK_BROWSER;
 
     let reporter = new Reporter();
 
@@ -31,7 +32,7 @@ async function run() {
     );
 
     // Producing report
-    let output = reporter.generate(pulls);
+    let output = reporter.generate(url, pulls);
     console.log(output);
 }
 

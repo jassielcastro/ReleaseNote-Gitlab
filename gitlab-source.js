@@ -8,7 +8,7 @@ Array.prototype.distinct = function () {
 const query_getTags = "/repository/tags";
 
 const query_PullsBetween = function (fromDate, toDate) {
-    return `/merge_requests?state=merged&created_after=${fromDate}&created_before=${toDate}&target_branch=develop`;
+    return `/merge_requests?state=merged&updated_after=${fromDate}&updated_before=${toDate}&target_branch=develop`;
 };
 
 module.exports = class Gitlab {

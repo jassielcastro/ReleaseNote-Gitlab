@@ -1,10 +1,10 @@
 module.exports = class Reporter {
-    generate(tasks) {
+    generate(url, tasks) {
         var text = "";
         tasks
-            .filter((a) => a)
             .forEach((i) => {
-                text += `### [${i.title}](${i.mr})\n`;
+                text += `### [${i.title}](${url}${i.task})\n`;
+                text += `   MergeRequest: ${i.mr}\n`;
                 text += `   Author: ${i.author}\n`;
                 i.reviewers.forEach((reviewer) => {
                     text += `   Reviewer: ${reviewer.name}\n`;

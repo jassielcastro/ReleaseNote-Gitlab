@@ -22,6 +22,7 @@ When downloading the project, you will need to perform the following steps:
 
         GITLAB_TOKEN=<PERSONAL_ACCESS_TOEK>
         PROJECT_ID=<YOUR_PROJECT_ID>
+        TASK_BROWSER=<YOUR_TASK_PRIJECT_URL> (Jira for example)
         
 
 - Finally, we execute the project:
