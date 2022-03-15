@@ -32,8 +32,11 @@ When downloading the project, you will need to perform the following steps:
 The final result will be a text with the following format:
 
 ```txt
-### [<MERGE_REQUEST_TITLE>](<MERGE_REQUEST_URL>)
+### [<MERGE_REQUEST_TITLE>](<TASK_URL>)
+    MergeRequest: <MERGE_REQUEST_URL>
     Author: <MERGE_REQUEST_AUTHOR>
+    Reviewer: <MERGE_REQUEST_REVIEWER>
+    ...
     Reviewer: <MERGE_REQUEST_REVIEWER>
 
 ```
