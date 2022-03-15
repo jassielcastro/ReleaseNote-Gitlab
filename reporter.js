@@ -1,10 +1,10 @@
 module.exports = class Reporter {
-    generate(tasks) {
+    generate(jira, tasks) {
         var text = "";
         tasks
-            .filter((a) => a)
             .forEach((i) => {
-                text += `### [${i.title}](${i.mr})\n`;
+                text += `### [${i.title}](${jira}${i.task})\n`;
+                text += `   MergeRequest: ${i.mr}\n`;
                 text += `   Author: ${i.author}\n`;
                 i.reviewers.forEach((reviewer) => {
                     text += `   Reviewer: ${reviewer.name}\n`;
