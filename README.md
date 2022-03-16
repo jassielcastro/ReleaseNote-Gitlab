@@ -20,7 +20,8 @@ When downloading the project, you will need to perform the following steps:
 
 - Create in the root of the project a file called ```.env``` where you must integrate the following parameters:
 
-```GITLAB_TOKEN=<GITLAB_PERSONAL_ACCESS_TOKEN>
+```
+GITLAB_TOKEN=<GITLAB_PERSONAL_ACCESS_TOKEN>
 PROJECT_ID=<GITLAB_PROJECT_ID>
 TASK_BROWSER=<YOUR_TASK_PRIJECT_URL> (Jira for example)
 TARGET_BRANCH=<TARGET_BRANCH_TO_OBTAIN_MERGE_REQUEST>
