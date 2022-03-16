@@ -7,8 +7,8 @@ Array.prototype.distinct = function () {
 
 const query_getTags = "/repository/tags";
 
-const query_PullsBetween = function (fromDate, toDate) {
-    return `/merge_requests?state=merged&updated_after=${fromDate}&updated_before=${toDate}&target_branch=develop`;
+const query_PullsBetween = function (fromDate, toDate, targetBranch) {
+    return `/merge_requests?state=merged&updated_after=${fromDate}&updated_before=${toDate}&target_branch=${targetBranch}`;
 };
 
 module.exports = class Gitlab {
@@ -38,8 +38,8 @@ module.exports = class Gitlab {
         return date.toISOString();
     }
 
-    async getPullsSinceLastRelease(fromDate, toDate) {
-        const result = await this.buildQuery(query_PullsBetween(fromDate, toDate));
+    async getPullsSinceLastRelease(fromDate, toDate, targetBranch) {
+        const result = await this.buildQuery(query_PullsBetween(fromDate, toDate, targetBranch));
         return result
             .distinct()
             .map((item) => new ReleaseItem(item))
