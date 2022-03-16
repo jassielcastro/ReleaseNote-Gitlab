@@ -7,6 +7,7 @@ async function run() {
     let owner = process.env.PROJECT_ID;
     let token = process.env.GITLAB_TOKEN;
     let url = process.env.TASK_BROWSER;
+    let targetBranch = process.env.TARGET_BRANCH;
 
     let reporter = new Reporter();
 
@@ -24,7 +25,8 @@ async function run() {
 
     let pulls = await client.getPullsSinceLastRelease(
         lastReleaseDate,
-        toNow
+        toNow,
+        targetBranch
     );
 
     console.log(
