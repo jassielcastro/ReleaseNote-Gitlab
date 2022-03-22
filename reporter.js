@@ -3,11 +3,12 @@ module.exports = class Reporter {
         var text = "";
         tasks
             .forEach((i) => {
-                text += `### [${i.title}](${url}${i.task})\n`;
-                text += `   MergeRequest: ${i.mr}\n`;
-                text += `   Author: ${i.author}\n`;
+                text += `### [${i.title}](${url}${i.task})\n\n`;
+                text += `**MergeRequest:** ${i.mr}\n\n`;
+                text += `**Author:** ${i.author}\n\n`;
+                text += `**Reviewers:** \n\n`;
                 i.reviewers.forEach((reviewer) => {
-                    text += `   Reviewer: ${reviewer.name}\n`;
+                    text += `* ${reviewer.name}\n`;
                 });
             });
         return text;
