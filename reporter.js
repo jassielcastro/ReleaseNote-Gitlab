@@ -10,6 +10,7 @@ module.exports = class Reporter {
                 i.reviewers.forEach((reviewer) => {
                     text += `* ${reviewer.name}\n`;
                 });
+                text += `\n`;
             });
         return text;
     }
